@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Branch: feature/completetask - Commit 2 (handle invalid ID and already-completed cases)
+# Features: add, display, complete and delete tasks (JSON storage)
 import json
 import os
 
@@ -38,9 +38,22 @@ def display_tasks():
 
 
 def add_task(title):
-    """[STUB] Add a new task - to be implemented in feature/addtask."""
-    print("[INFO] Add task feature not yet implemented.")
-    return False
+    """Add a new task with input validation.
+    
+    Validates that the title is not empty or whitespace-only.
+    Returns True if task was added, False if validation failed.
+    """
+    title = title.strip()
+    if not title:
+        print("Error: Task title cannot be empty.")
+        return False
+    tasks = load_tasks()
+    new_id = max((t['id'] for t in tasks), default=0) + 1
+    task = {'id': new_id, 'title': title, 'completed': False}
+    tasks.append(task)
+    save_tasks(tasks)
+    print(f"Task added: [{new_id}] {title}")
+    return True
 
 
 def complete_task(task_id):
