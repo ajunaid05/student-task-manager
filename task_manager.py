@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Version: 0.1 - Improved display, foundation for feature branches
+# Branch: feature/deletetask - Commit 1 (basic delete_task)
 import json
 import os
 
@@ -50,8 +50,15 @@ def complete_task(task_id):
 
 
 def delete_task(task_id):
-    """[STUB] Delete a task - to be implemented in feature/deletetask."""
-    print("[INFO] Delete task feature not yet implemented.")
+    """Delete a task from the list by its ID."""
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            tasks.remove(task)
+            save_tasks(tasks)
+            print(f"Task [{task_id}] deleted successfully.")
+            return True
+    print(f"Task with ID {task_id} not found.")
     return False
 
 
