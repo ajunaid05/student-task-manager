@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Version: 0.1 - Improved display, foundation for feature branches
+# Branch: feature/completetask - Commit 1 (basic complete_task)
 import json
 import os
 
@@ -44,8 +44,15 @@ def add_task(title):
 
 
 def complete_task(task_id):
-    """[STUB] Mark a task complete - to be implemented in feature/completetask."""
-    print("[INFO] Complete task feature not yet implemented.")
+    """Mark a task as completed by its ID."""
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            task['completed'] = True
+            save_tasks(tasks)
+            print(f"Task [{task_id}] marked as completed.")
+            return True
+    print(f"Task with ID {task_id} not found.")
     return False
 
 
