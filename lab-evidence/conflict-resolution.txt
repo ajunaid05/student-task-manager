@@ -1,0 +1,15 @@
+# Merge conflict resolution (PR #15) - output of: git show dce56ee
+
+Conflict markers that Git inserted before resolution:
+
+<<<<<<< HEAD
+Project status: Completed
+=======
+Project status: In Progress
+>>>>>>> origin/main
+
+Resolution commit:
+
+dce56ee Ahmad Junaid 2026-11-18 06:29:13 +0000
+Merge main into docs/status-completed: resolve README status conflict
+

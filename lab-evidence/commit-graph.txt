@@ -1,0 +1,56 @@
+* de98c9e (HEAD -> main, origin/main, origin/HEAD) Link CI evidence screenshot in lab evidence and lab report
+* a7c65ea Add CI evidence screenshot (failed and successful runs)
+* 75e6f21 (tag: v1.0.0) Add LAB-REPORT.md
+* f6dabe7 Add lab-evidence folder
+* d54cb08 Add user guide
+* 21fb969 Update README with features, setup, usage and test instructions
+*   1f6905b Merge PR #15: README status Completed
+|\  
+| *   dce56ee (origin/docs/status-completed, docs/status-completed) Merge main into docs/status-completed: resolve README status conflict
+| |\  
+| |/  
+|/|   
+* |   0b9809b Merge PR #13: Add unit tests and CI workflow
+|\ \  
+| * | 1049e31 (origin/feature/tests-and-ci, feature/tests-and-ci) Fix complete_task to return False for already-completed tasks
+| * | a2ec6e5 Add CI workflow for Python unit tests
+| * | 063ec8e Add unittest tests for add, complete and delete tasks
+* | |   78439db Merge pull request #14 from ajunaid05/docs/status-in-progress
+|\ \ \  
+| * | | de54438 (origin/docs/status-in-progress, docs/status-in-progress) README: set project status to In Progress
+|/ / /  
+| | * edbf959 README: set project status to Completed
+| |/  
+|/|   
+* | 97a15fa Add project status line to README
+|/  
+*   7f11f96 Merge PR #11: Delete task feature
+|\  
+| *   9e265ec (origin/feature/delete-task, feature/deletetask) Merge main into feature/deletetask: resolve header comment conflict
+| |\  
+| * | 1b7a5c7 feature/deletetask: Handle invalid task ID gracefully in delete
+| * | c58cd00 feature/deletetask: Add delete_task function to remove tasks by ID
+* | |   4fc7e73 Merge PR #10: Complete task feature
+|\ \ \  
+| |_|/  
+|/| |   
+| * |   996745b (origin/feature/complete-task, feature/completetask) Merge main into feature/completetask: resolve header comment conflict
+| |\ \  
+| |/ /  
+|/| |   
+* | | 4e40d86 Add Python .gitignore
+* | | ac19098 Add MIT license
+* | |   9a3b406 Merge feature/addtask: Add task with input validation
+|\ \ \  
+| |_|/  
+|/| |   
+| * | 91b409e (origin/feature/add-task) feature/addtask: Reject empty task titles with input validation
+| * | 99865a5 feature/addtask: Add basic add_task function
+|/ /  
+| * 0e72d17 feature/completetask: Handle already-completed tasks and invalid IDs
+| * 3cae64c feature/completetask: Add complete_task function to mark tasks done
+|/  
+* de288d7 Improve display_tasks to show task count and use status icons
+* 776f899 Add task_manager.py with basic menu structure and display_tasks
+* d1f44f7 Initial commit
+commits on main: 32
