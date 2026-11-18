@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Branch: feature/completetask - Commit 1 (basic complete_task)
+# Branch: feature/completetask - Commit 2 (handle invalid ID and already-completed cases)
 import json
 import os
 
@@ -44,15 +44,23 @@ def add_task(title):
 
 
 def complete_task(task_id):
-    """Mark a task as completed by its ID."""
+    """Mark a task as completed, with proper validation.
+    
+    Handles cases where the task ID does not exist,
+    or the task is already marked as completed.
+    Returns True if status was changed, False otherwise.
+    """
     tasks = load_tasks()
     for task in tasks:
         if task['id'] == task_id:
-            task['completed'] = True
-            save_tasks(tasks)
-            print(f"Task [{task_id}] marked as completed.")
+            if task['completed']:
+                print(f"Task [{task_id}] is already completed.")
+            else:
+                task['completed'] = True
+                save_tasks(tasks)
+                print(f"Task [{task_id}] marked as completed.")
             return True
-    print(f"Task with ID {task_id} not found.")
+    print(f"Error: No task found with ID {task_id}.")
     return False
 
 
