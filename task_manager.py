@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Branch: feature/addtask - Commit 2 (input validation: reject empty titles)
+# Features: add, display, complete and delete tasks (JSON storage)
 import json
 import os
 
@@ -57,8 +57,23 @@ def add_task(title):
 
 
 def complete_task(task_id):
-    """[STUB] Mark a task complete - to be implemented in feature/completetask."""
-    print("[INFO] Complete task feature not yet implemented.")
+    """Mark a task as completed, with proper validation.
+    
+    Handles cases where the task ID does not exist,
+    or the task is already marked as completed.
+    Returns True if status was changed, False otherwise.
+    """
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            if task['completed']:
+                print(f"Task [{task_id}] is already completed.")
+            else:
+                task['completed'] = True
+                save_tasks(tasks)
+                print(f"Task [{task_id}] marked as completed.")
+            return True
+    print(f"Error: No task found with ID {task_id}.")
     return False
 
 
