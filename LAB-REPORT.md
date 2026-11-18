@@ -18,7 +18,7 @@ Branches let me work on a feature separately without breaking `main`. In this pr
 
 ## 4. GitHub Issues and Actions
 
-Issues track tasks, bugs and ideas in one place, with labels, so the team knows what needs to be done and who is working on it. Pull Requests can be linked to Issues so they close automatically. GitHub Actions runs workflows automatically, for example running the tests on every push and pull request, which catches bugs early. In this project the first CI run failed because of a real bug in `complete_task`, and it passed after the fix.
+Issues track tasks, bugs and ideas in one place, with labels, so the team knows what needs to be done and who is working on it. Pull Requests can be linked to Issues so they close automatically. GitHub Actions runs workflows automatically, for example running the tests on every push and pull request, which catches bugs early. In this project the first CI run failed because of a real bug in `complete_task`, and it passed after the fix. Screenshot: [lab-evidence/ci-runs-failed-and-success.png](lab-evidence/ci-runs-failed-and-success.png).
 
 ## 5. One difficulty and how I solved it
 
