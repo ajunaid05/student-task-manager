@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Branch: feature/addtask - Commit 1 (basic add_task, no validation yet)
+# Branch: feature/addtask - Commit 2 (input validation: reject empty titles)
 import json
 import os
 
@@ -38,7 +38,15 @@ def display_tasks():
 
 
 def add_task(title):
-    """Add a new task to the task list."""
+    """Add a new task with input validation.
+    
+    Validates that the title is not empty or whitespace-only.
+    Returns True if task was added, False if validation failed.
+    """
+    title = title.strip()
+    if not title:
+        print("Error: Task title cannot be empty.")
+        return False
     tasks = load_tasks()
     new_id = max((t['id'] for t in tasks), default=0) + 1
     task = {'id': new_id, 'title': title, 'completed': False}
