@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Branch: feature/deletetask - Commit 1 (basic delete_task)
+# Branch: feature/deletetask - Commit 2 (handle invalid task ID in delete)
 import json
 import os
 
@@ -50,7 +50,11 @@ def complete_task(task_id):
 
 
 def delete_task(task_id):
-    """Delete a task from the list by its ID."""
+    """Delete a task by ID, with error handling for invalid identifiers.
+    
+    Returns True if task was found and deleted,
+    False if no task with that ID exists.
+    """
     tasks = load_tasks()
     for task in tasks:
         if task['id'] == task_id:
@@ -58,7 +62,7 @@ def delete_task(task_id):
             save_tasks(tasks)
             print(f"Task [{task_id}] deleted successfully.")
             return True
-    print(f"Task with ID {task_id} not found.")
+    print(f"Error: No task found with ID {task_id}. No changes made.")
     return False
 
 
