@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Version: 0.0 - Initial skeleton
+# Version: 0.1 - Improved display, foundation for feature branches
 import json
 import os
 
@@ -23,41 +23,43 @@ def save_tasks(tasks):
 
 
 def display_tasks():
-    """Display all tasks."""
+    """Display all tasks with ID, status, and title."""
     tasks = load_tasks()
     if not tasks:
-        print("No tasks found.")
+        print("\nNo tasks found. Add a task to get started!")
         return
-    print("\n--- Task List ---")
+    total = len(tasks)
+    done = sum(1 for t in tasks if t['completed'])
+    print(f"\n--- Task List ({done}/{total} completed) ---")
     for task in tasks:
-        status = "Done" if task['completed'] else "Pending"
-        print(f"  ID:{task['id']} | {task['title']} | {status}")
+        status = "✓" if task['completed'] else "○"
+        print(f"  [{task['id']}] {status}  {task['title']}")
     print()
 
 
 def add_task(title):
-    """[STUB] Add a new task - feature not yet implemented."""
+    """[STUB] Add a new task - to be implemented in feature/addtask."""
     print("[INFO] Add task feature not yet implemented.")
     return False
 
 
 def complete_task(task_id):
-    """[STUB] Mark a task complete - feature not yet implemented."""
+    """[STUB] Mark a task complete - to be implemented in feature/completetask."""
     print("[INFO] Complete task feature not yet implemented.")
     return False
 
 
 def delete_task(task_id):
-    """[STUB] Delete a task - feature not yet implemented."""
+    """[STUB] Delete a task - to be implemented in feature/deletetask."""
     print("[INFO] Delete task feature not yet implemented.")
     return False
 
 
 def main():
     """Main application loop."""
-    print("================================")
-    print("   Student Task Manager v0.0")
-    print("================================")
+    print("=" * 35)
+    print("   Student Task Manager v0.1")
+    print("=" * 35)
     while True:
         print("\nOptions:")
         print("  1. Add Task")
