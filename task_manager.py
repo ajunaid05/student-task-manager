@@ -78,8 +78,19 @@ def complete_task(task_id):
 
 
 def delete_task(task_id):
-    """[STUB] Delete a task - to be implemented in feature/deletetask."""
-    print("[INFO] Delete task feature not yet implemented.")
+    """Delete a task by ID, with error handling for invalid identifiers.
+    
+    Returns True if task was found and deleted,
+    False if no task with that ID exists.
+    """
+    tasks = load_tasks()
+    for task in tasks:
+        if task['id'] == task_id:
+            tasks.remove(task)
+            save_tasks(tasks)
+            print(f"Task [{task_id}] deleted successfully.")
+            return True
+    print(f"Error: No task found with ID {task_id}. No changes made.")
     return False
 
 
