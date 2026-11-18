@@ -1,7 +1,7 @@
 # task_manager.py
 # Student Task Manager - COMSATS University Lahore
 # DevOps Assignment 4
-# Version: 0.1 - Improved display, foundation for feature branches
+# Branch: feature/addtask - Commit 1 (basic add_task, no validation yet)
 import json
 import os
 
@@ -38,9 +38,14 @@ def display_tasks():
 
 
 def add_task(title):
-    """[STUB] Add a new task - to be implemented in feature/addtask."""
-    print("[INFO] Add task feature not yet implemented.")
-    return False
+    """Add a new task to the task list."""
+    tasks = load_tasks()
+    new_id = max((t['id'] for t in tasks), default=0) + 1
+    task = {'id': new_id, 'title': title, 'completed': False}
+    tasks.append(task)
+    save_tasks(tasks)
+    print(f"Task added: [{new_id}] {title}")
+    return True
 
 
 def complete_task(task_id):
