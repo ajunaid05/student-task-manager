@@ -68,10 +68,10 @@ def complete_task(task_id):
         if task['id'] == task_id:
             if task['completed']:
                 print(f"Task [{task_id}] is already completed.")
-            else:
-                task['completed'] = True
-                save_tasks(tasks)
-                print(f"Task [{task_id}] marked as completed.")
+                return False
+            task['completed'] = True
+            save_tasks(tasks)
+            print(f"Task [{task_id}] marked as completed.")
             return True
     print(f"Error: No task found with ID {task_id}.")
     return False
