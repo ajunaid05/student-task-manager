@@ -1,3 +1,3 @@
 # student-task-manager
 
-Project status: Planning
+Project status: Completed
