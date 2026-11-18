@@ -1,1 +1,3 @@
-# student_taskmanager
+# student-task-manager
+
+Project status: Planning
